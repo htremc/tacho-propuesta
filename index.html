@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Tacho × COMPOUND · Propuesta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Estética TAKKRA (plantillas/propuesta-negocio-local), versión visual para ecommerce: portada con la cifra, rejilla problema → solución, demo incrustada, un gráfico, precio y cierre. */
+:root{
+  --navy:#0A1424; --navy-2:#0F1D33; --navy-3:#13263F;
+  --mint:#19D3A2; --mint-ink:#06121F; --mint-text:#0A7358;
+  --cream:#F4F1E8; --paper:#FFFFFF; --ink:#0A1424; --ink-2:#3B4656; --mute:#5B6472; --line:#E3DECF;
+  --on-navy:#FFFFFF; --on-navy-2:#C9D4E0; --on-navy-3:#8FA0B4; --line-dark:rgba(255,255,255,.12);
+  --bad:#FF8A7A; --est:#8A4708; --est-dark:#FBA94A;
+  --sans:"Archivo", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --w:68rem;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+body{margin:0; background:var(--navy); color:var(--on-navy); font-family:var(--sans); font-size:17px; line-height:1.5; -webkit-font-smoothing:antialiased; padding-bottom:calc(86px + env(safe-area-inset-bottom, 0px))}
+.bg{position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:radial-gradient(110% 60% at 100% 0%, rgba(25,211,162,.20), transparent 60%),
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px) 0 0/36px 36px,
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px) 0 0/36px 36px, var(--navy)}
+a{color:inherit}
+a:focus-visible, summary:focus-visible{outline:3px solid var(--mint); outline-offset:3px; border-radius:6px}
+.wrap{padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.in{max-width:var(--w); margin-inline:auto}
+h1,h2,h3{margin:0; text-wrap:balance}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+em{font-style:normal}
+.e{display:inline-block; vertical-align:.15em; font-family:var(--mono); font-size:10px; line-height:1.45; font-weight:600; letter-spacing:.08em; text-transform:uppercase; border:1px solid currentColor; border-radius:99px; padding:0 7px; white-space:nowrap; color:var(--est)}
+.hero .e, .fx .e, .demo .e, .pc.dark .e{color:var(--est-dark)}
+
+/* Botones */
+.btns{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px}
+.btn{display:inline-flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; text-decoration:none; background:var(--mint); color:var(--mint-ink); font-weight:900; font-size:17px; letter-spacing:.01em; border-radius:14px; padding:14px 22px; box-shadow:0 0 0 5px rgba(25,211,162,.22)}
+.btn small{font-size:12px; font-weight:700; opacity:.8; margin-top:3px; letter-spacing:0}
+.btn.big{font-size:clamp(18px,2.2vw,21px); padding:18px 28px; border-radius:16px}
+.btn.ghost{background:transparent; color:var(--on-navy); box-shadow:none; border:1.5px solid rgba(255,255,255,.35)}
+
+/* ---------- 1 · Portada ---------- */
+.top{display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center; padding-block:20px 6px; font-size:12px; letter-spacing:.2em; font-weight:800}
+.top b{color:var(--mint)}
+.chip{border:1px solid rgba(25,211,162,.55); color:var(--mint); border-radius:99px; padding:5px 12px; font-size:11px; letter-spacing:.14em; font-weight:800}
+.hero{display:grid; grid-template-columns:minmax(0,1.45fr) minmax(0,.55fr); gap:clamp(24px,4vw,56px); align-items:center; padding-block:clamp(30px,6vw,64px) clamp(36px,6vw,72px)}
+.eyebrow{font-size:12.5px; letter-spacing:.3em; font-weight:800; color:var(--mint); text-transform:uppercase; text-shadow:0 0 14px rgba(25,211,162,.45)}
+.pre{margin-top:18px; font-size:clamp(1.3rem,2.8vw,1.8rem); font-weight:800}
+.mega{margin-top:4px; line-height:.92; font-weight:900; letter-spacing:-.045em; white-space:nowrap}
+.mega .n{font-size:clamp(3.2rem,9vw,6.6rem); color:var(--mint); text-shadow:0 0 36px rgba(25,211,162,.38)}
+.mega .u{font-size:clamp(1.5rem,3.6vw,2.6rem); color:var(--mint); letter-spacing:-.02em; margin-left:4px}
+.month{margin-top:12px; font-size:clamp(1.15rem,2.4vw,1.5rem); font-weight:700; color:var(--on-navy-2)}
+.month b{color:var(--on-navy); font-weight:900}
+.one{margin-top:10px; font-size:1.02rem; color:var(--on-navy-3)}
+.stamp{justify-self:center; width:clamp(170px,22vw,230px); aspect-ratio:1; border-radius:50%; display:grid; place-content:center; text-align:center; color:var(--mint);
+  border:4px solid var(--mint); box-shadow:inset 0 0 0 8px var(--navy), inset 0 0 0 10px rgba(25,211,162,.7), 0 0 40px rgba(25,211,162,.25);
+  background:radial-gradient(circle, rgba(25,211,162,.14), transparent 70%); transform:rotate(-10deg)}
+.stamp span{display:block; font-weight:900; line-height:1}
+.stamp .s1{font-size:clamp(1rem,1.6vw,1.2rem); letter-spacing:.14em}
+.stamp .s1 sup{font-size:.6em}
+.stamp .s2{font-size:clamp(2.1rem,3.6vw,2.8rem); letter-spacing:-.02em; margin:4px 0; color:var(--on-navy)}
+.stamp .s3{font-size:clamp(.95rem,1.5vw,1.1rem); letter-spacing:.2em}
+
+/* ---------- Hoja crema ---------- */
+.sheet{background:var(--cream); color:var(--ink); border-radius:30px; padding:clamp(16px,3.2vw,40px); display:grid; gap:clamp(18px,2.6vw,28px)}
+.sec-h{display:grid; gap:6px; margin-bottom:18px}
+.sec-h h2{font-size:clamp(1.6rem,3.6vw,2.4rem); line-height:1.05; font-weight:900; letter-spacing:-.015em; text-transform:uppercase}
+.sec-h p{font-size:1.02rem; color:var(--ink-2)}
+.tag{display:inline-block; background:var(--mint); color:var(--mint-ink); border-radius:8px; padding:5px 10px; font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; justify-self:start}
+.tag.dark{background:var(--navy); color:var(--mint); border:1px solid rgba(25,211,162,.5)}
+
+/* ---------- 2 · Problema → Lo resolvemos ---------- */
+.mintband{background:linear-gradient(135deg, #19D3A2, #12B98C); border-radius:22px; padding:clamp(16px,2.6vw,26px)}
+.mintband .sec-h h2{color:var(--mint-ink)}
+.mintband .sec-h p{color:rgba(6,18,31,.78); font-weight:600}
+.fixes{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+.fx{background:var(--navy); color:var(--on-navy); border-radius:18px; padding:18px 16px 16px; box-shadow:0 4px 0 rgba(6,18,31,.28); display:grid; gap:12px; align-content:start; grid-template-rows:auto auto auto 1fr; min-width:0}
+.fx-h{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+.fx-h h3{font-size:1.2rem; line-height:1.1; font-weight:900; letter-spacing:-.01em}
+.fx-h .later{margin-left:auto; border:1px dashed rgba(255,255,255,.4); color:var(--on-navy-2); border-radius:99px; padding:3px 9px; font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap}
+.fx .ico{flex:none; width:44px; height:44px; border-radius:14px; background:var(--mint); color:var(--mint-ink); display:grid; place-items:center}
+.fx .ico svg{width:25px; height:25px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.fx .lb{display:block; font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; margin-bottom:4px}
+.fx .pb, .fx .sol{font-size:1rem; line-height:1.38; font-weight:600; color:var(--on-navy)}
+.fx .pb .lb{color:var(--bad)}
+.fx .sol{border-left:3px solid var(--mint); padding-left:11px}
+.fx .sol .lb{color:var(--mint)}
+.fx .gain{align-self:end; display:grid; gap:6px; border-top:1px dashed var(--line-dark); padding-top:12px}
+.fx .gain .lb{color:var(--on-navy-3); margin:0}
+.fx .res{justify-self:start; background:var(--mint); color:var(--mint-ink); border-radius:99px; padding:5px 12px; font-size:.92rem; font-weight:900}
+.fx-note{margin-top:14px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; background:var(--navy); color:var(--on-navy-2); border-radius:16px; padding:14px 18px; font-size:.98rem}
+.fx-note b{color:var(--mint); font-size:1.5rem; font-weight:900; white-space:nowrap}
+.fx-note .e{color:var(--est-dark)}
+
+/* ---------- 3 · Demo incrustada ---------- */
+.demo{background:linear-gradient(120deg, var(--navy), #0B2E2B); color:var(--on-navy); border:1px solid rgba(25,211,162,.45); border-radius:24px; padding:clamp(18px,3vw,32px)}
+.demo .sec-h p{color:var(--on-navy-2)}
+.device{max-width:980px; margin:0 auto; background:#0F1D33; border:1px solid rgba(255,255,255,.14); border-radius:18px 18px 12px 12px; padding:10px; box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.chrome{display:flex; align-items:center; gap:6px; padding:2px 4px 10px}
+.chrome i{width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.22)}
+.chrome i:first-child{background:#FF6B5E}
+.chrome i:nth-child(2){background:#F5BF4F}
+.chrome i:nth-child(3){background:var(--mint)}
+.chrome span{flex:1; min-width:0; margin-left:8px; background:rgba(255,255,255,.07); border-radius:99px; padding:4px 12px; font-family:var(--mono); font-size:11.5px; color:var(--on-navy-3); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.screen{position:relative; aspect-ratio:16/10; border-radius:10px; overflow:hidden; background:#241C1B}
+.screen iframe{position:absolute; inset:0; width:100%; height:100%; border:0; display:block}
+.base{max-width:1040px; height:14px; margin:0 auto; background:linear-gradient(#1A2B44, #0F1D33); border-radius:0 0 18px 18px; border:1px solid rgba(255,255,255,.12); border-top:0}
+.demo .btns{justify-content:center; margin-top:22px}
+
+/* ---------- 4 · Datos ---------- */
+.block{background:var(--paper); border:1px solid var(--line); border-radius:22px; padding:clamp(18px,2.6vw,28px)}
+.chartwrap{max-width:46rem}
+.cols{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:clamp(8px,2vw,20px); align-items:end; height:250px; padding-inline:4px; border-bottom:2px solid #9AA4AE;
+  background:linear-gradient(to top, var(--line) 1px, transparent 1px) 0 100%/100% 27.33% repeat-y}
+.col{height:100%; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; min-width:0}
+.col .v{font-family:var(--mono); font-size:12.5px; font-weight:600; margin-bottom:6px; white-space:nowrap}
+.col .b{width:100%; max-width:92px; background:#0FA07C; border-radius:8px 8px 0 0}
+.col.part .b{background:#7FCFB9}
+.labs{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:clamp(8px,2vw,20px); padding-inline:4px; margin-top:8px; text-align:center; font-size:.85rem; font-weight:800}
+.labs small{display:block; font-weight:500; color:var(--mute); font-size:.75rem}
+.read{margin-top:18px; display:flex; gap:12px; align-items:flex-start; font-size:1.08rem; font-weight:800; max-width:46rem}
+.read::before{content:""; flex:none; width:6px; align-self:stretch; border-radius:4px; background:var(--mint)}
+.read mark{background:linear-gradient(transparent 52%, rgba(25,211,162,.42) 52%); color:inherit; padding:0 .08em}
+.src{margin-top:10px; font-family:var(--mono); font-size:11.5px; color:var(--mute)}
+
+/* ---------- 5 · Precio ---------- */
+.free{display:grid; grid-template-columns:auto minmax(0,1fr); gap:18px 28px; align-items:center; background:var(--navy); color:var(--on-navy); border-radius:22px; padding:clamp(18px,2.6vw,26px); margin-bottom:14px}
+.free .stamp{width:clamp(140px,16vw,170px); transform:rotate(-8deg)}
+.free .stamp .s2{font-size:clamp(1.8rem,2.8vw,2.2rem)}
+.free h3{font-size:clamp(1.4rem,3vw,2rem); line-height:1.08; font-weight:900; letter-spacing:-.01em}
+.free h3 em{color:var(--mint)}
+.free p{margin-top:8px; color:var(--on-navy-2)}
+.prices{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px}
+.pc{background:var(--paper); color:var(--ink); border:2px solid var(--mint); border-radius:22px; padding:20px; display:grid; gap:14px; align-content:start; min-width:0}
+.pc.dark{background:var(--navy); color:var(--on-navy); border-color:rgba(25,211,162,.6)}
+.pc h3{font-size:1.5rem; line-height:1.05; font-weight:900; letter-spacing:-.01em}
+.pc.dark h3 em{color:var(--mint)}
+.pc h3 em{color:var(--mint-text)}
+.pills{display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0; list-style:none}
+.pills li{border:1px solid var(--line); border-radius:99px; padding:4px 10px; font-size:.82rem; font-weight:700; color:var(--ink-2)}
+.pc.dark .pills li{border-color:rgba(255,255,255,.18); color:var(--on-navy-2)}
+.amount{display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px}
+.amount s{font-size:1.25rem; font-weight:700; color:var(--mute)}
+.pc.dark .amount s{color:var(--on-navy-3)}
+.amount b{font-size:clamp(2.4rem,5vw,3rem); line-height:1; font-weight:900; letter-spacing:-.03em; color:var(--mint-text)}
+.pc.dark .amount b{color:var(--mint)}
+.amount span{font-size:.9rem; font-weight:700; color:var(--mute)}
+.pc.dark .amount span{color:var(--on-navy-3)}
+.terms{margin:0; padding:0; list-style:none; display:grid; gap:8px; border-top:1px dashed var(--line); padding-top:12px; font-size:.95rem; color:var(--ink-2)}
+.pc.dark .terms{border-top-color:var(--line-dark); color:var(--on-navy-2)}
+.terms li{display:grid; grid-template-columns:18px minmax(0,1fr); gap:8px}
+.terms li::before{content:"✓"; color:var(--mint-text); font-weight:900}
+.pc.dark .terms li::before{color:var(--mint)}
+.terms b{color:var(--ink)}
+.pc.dark .terms b{color:var(--on-navy)}
+.one-fee{margin-top:12px; text-align:center; font-weight:800; color:var(--ink-2)}
+.one-fee b{color:var(--ink)}
+details{margin-top:14px; border:1px solid var(--line); border-radius:14px; background:var(--paper)}
+summary{cursor:pointer; padding:13px 16px; font-weight:800; font-size:.95rem; list-style-position:inside}
+.det{padding:0 16px 16px; display:grid; grid-template-columns:minmax(0,1fr); gap:16px}
+.det h4{margin:0 0 6px; font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--mint-text)}
+.tbl{overflow-x:auto}
+table.sup{width:100%; border-collapse:collapse; font-size:.88rem; min-width:30rem}
+table.sup th, table.sup td{text-align:left; padding:7px 10px; border-top:1px solid var(--line); vertical-align:top}
+table.sup th{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--mute)}
+table.sup td.r{text-align:right; font-family:var(--mono); font-weight:600; white-space:nowrap}
+table.sup tr.tot td{font-weight:900; color:var(--mint-text); border-top:2px solid var(--ink)}
+.det ul{margin:0; padding-left:1.1rem; display:grid; gap:5px; font-size:.9rem; color:var(--ink-2)}
+
+/* ---------- 6 · Cierre ---------- */
+.closing{background:linear-gradient(120deg, var(--navy), #0B2E2B); color:var(--on-navy); border:1px solid rgba(25,211,162,.45); border-radius:24px; padding:clamp(20px,3.2vw,36px); text-align:center}
+.closing .sec-h{justify-items:center}
+.closing .sec-h p{color:var(--on-navy-2)}
+.steps{list-style:none; margin:6px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; counter-reset:paso; text-align:left}
+.steps li{position:relative; background:rgba(255,255,255,.05); border:1px solid var(--line-dark); border-radius:18px; padding:18px 16px; display:grid; gap:8px; align-content:start; counter-increment:paso; min-width:0}
+.steps li::after{content:counter(paso); position:absolute; top:12px; right:16px; font-size:2.4rem; line-height:1; font-weight:900; color:rgba(25,211,162,.28)}
+.steps .ico{width:46px; height:46px; border-radius:14px; background:var(--mint); color:var(--mint-ink); display:grid; place-items:center}
+.steps .ico svg{width:26px; height:26px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.steps h3{font-size:1.2rem; line-height:1.15; font-weight:900}
+.steps p{font-size:.95rem; color:var(--on-navy-2)}
+.closing .btns{justify-content:center; margin-top:26px}
+.contact{margin-top:14px; font-size:.95rem; color:var(--on-navy-3)}
+.contact a{color:var(--on-navy); font-weight:800; text-decoration-color:rgba(25,211,162,.6); text-underline-offset:3px}
+.signature{display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 20px; border-top:1px solid var(--line); padding-top:16px; font-size:.95rem}
+.signature b{font-weight:800}
+.signature span{color:var(--mute)}
+footer{padding-block:22px 28px; font-size:.8rem; color:var(--on-navy-3)}
+.bar{position:fixed; left:0; right:0; bottom:0; z-index:5; background:rgba(10,20,36,.96); border-top:1px solid rgba(25,211,162,.35);
+  padding:10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px))}
+.bar a{display:block; max-width:34rem; margin:0 auto; background:var(--mint); color:var(--mint-ink); font-weight:900; font-size:16px; text-align:center; text-decoration:none; border-radius:12px; padding:13px}
+
+@media (max-width: 960px){
+  .fixes{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width: 760px){
+  body{font-size:16px}
+  .hero, .prices, .steps{grid-template-columns:minmax(0,1fr)}
+  .hero .stamp{width:150px; order:-1; justify-self:end; margin-bottom:-24px}
+  .screen{aspect-ratio:auto; height:min(74vh,580px)}
+  .base{display:none}
+  .device{border-radius:22px; padding:8px}
+}
+@media (max-width: 560px){
+  .fixes{grid-template-columns:minmax(0,1fr)}
+  .free{grid-template-columns:minmax(0,1fr); justify-items:center; text-align:center}
+  .btns .btn{flex:1 1 100%}
+  .labs{font-size:.78rem}
+  .col .v{font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<div class="bg" aria-hidden="true"></div>
+
+<!-- 1 · PORTADA -->
+<div class="wrap">
+  <div class="in">
+    <div class="top"><div>SMART COMPOUND <b>·</b> <b>META TECH PROVIDER</b></div><div class="chip">PARA TACHO</div></div>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Propuesta para Iris · noviembre de 2026</p>
+        <h1 class="pre">Tacho puede recuperar</h1>
+        <p class="mega num" aria-label="unos 24.000 euros al año"><span class="n">≈24.000 €</span><span class="u">/año</span></p>
+        <p class="month num"><b>≈2.000 €/mes</b> de beneficio <span class="e">estimado</span></p>
+        <p class="one">Con vuestro tráfico de octubre. Con WhatsApp, sin tocar vuestra tienda.</p>
+        <div class="btns">
+          <a class="btn big" href="https://cal.com/smart-compound/onboarding" target="_blank" rel="noopener">Empezar el onboarding gratuito<small>Reunión «Arranque del onboarding»</small></a>
+          <a class="btn ghost" href="#demo">Ver la demo</a>
+        </div>
+      </div>
+      <div class="stamp" role="img" aria-label="Primer mes gratis de todo el catálogo"><span class="s1">1.<sup>er</sup> MES</span><span class="s2">GRATIS</span><span class="s3">DE TODO</span></div>
+    </header>
+  </div>
+</div>
+
+<div class="wrap">
+<main class="in sheet">
+
+  <!-- 2 · PROBLEMA → LO RESOLVEMOS -->
+  <section class="mintband" aria-labelledby="h-fix">
+    <div class="sec-h"><h2 id="h-fix">Problema → Lo resolvemos</h2><p>Seis cosas que hemos visto en vuestra tienda, y cómo las resolvemos.</p></div>
+    <div class="fixes">
+      <article class="fx">
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.9-3.5M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3.5M20 20v-4h-4"/></svg></span><h3>Que vuelvan a comprar</h3></div>
+        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>Mucha gente os compró en la ola. Se le acaba el bote y nadie le recuerda volver.</p>
+        <p class="sol"><span class="lb">→ Qué hacemos</span>Cuando se le está acabando, le escribimos por WhatsApp para reponer. Y cada compra suma puntos.</p>
+        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">Clientes que repiten</span></div>
+      </article>
+      <article class="fx">
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8 12.5l3 3 5-6"/></svg></span><h3>Permiso para escribir</h3></div>
+        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>Al pagar no se pide permiso para WhatsApp, así que no podéis escribir a nadie.</p>
+        <p class="sol"><span class="lb">→ Qué hacemos</span>Añadimos la casilla de WhatsApp al pagar. Legal, y la gestionamos nosotros.</p>
+        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">La llave de todo lo demás</span></div>
+      </article>
+      <article class="fx">
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2.5l2.2 10.5h10.6L20.5 7H7"/><circle cx="9.5" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg></span><h3>Carritos abandonados</h3></div>
+        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>Alguien llena el carrito, llega al pago y se va. Solo le llega un email que casi nadie abre.</p>
+        <p class="sol"><span class="lb">→ Qué hacemos</span>Le escribimos por WhatsApp con su carrito listo: un toque y lo paga. Si duda, le respondemos al momento.</p>
+        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">Ventas que hoy se pierden</span></div>
+      </article>
+      <article class="fx">
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span><h3>Productos agotados</h3></div>
+        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>Alguien llega desde un vídeo, ve «agotado» y se va. No vuelve, y no sabéis quién era.</p>
+        <p class="sol"><span class="lb">→ Qué hacemos</span>Ponemos un botón «avísame por WhatsApp» y le escribimos en cuanto repongáis.</p>
+        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">Ventas que vuelven</span></div>
+      </article>
+      <article class="fx">
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></svg></span><h3>Opiniones</h3><span class="later">Más adelante</span></div>
+        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>Habéis vendido miles de botes, pero vuestra crema estrella no enseña ninguna opinión.</p>
+        <p class="sol"><span class="lb">→ Qué hacemos</span>Después de cada entrega, pedimos la opinión por WhatsApp, con foto.</p>
+        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">Confianza, en la web y en el súper</span></div>
+      </article>
+      <article class="fx">
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v10H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><h3>Dudas de clientes</h3></div>
+        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>«¿Dónde está mi pedido?» o «¿lleva gluten?» acaban en el correo de Josep.</p>
+        <p class="sol"><span class="lb">→ Qué hacemos</span>Las responde la IA por WhatsApp, al momento y a cualquier hora. Lo raro pasa a vuestro equipo.</p>
+        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">Tiempo para el equipo</span></div>
+      </article>
+    </div>
+    <p class="fx-note"><span>Sumando todo lo que hacemos <span class="e">estimado</span></span><b class="num">≈2.000 €/mes</b></p>
+  </section>
+
+  <!-- 3 · LA DEMO, INCRUSTADA -->
+  <section class="demo" id="demo" aria-labelledby="h-demo">
+    <div class="sec-h"><h2 id="h-demo">Así lo vería un cliente de Tacho</h2><p>Pruébala aquí mismo: seis momentos de un cliente y lo que hace el sistema.</p></div>
+    <div class="device">
+      <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>htremc.github.io/tacho-demo</span></div>
+      <div class="screen">
+        <iframe src="https://htremc.github.io/tacho-demo/" title="Demo de Tacho: cómo lo viviría un cliente por WhatsApp" loading="lazy" allow="fullscreen" allowfullscreen referrerpolicy="no-referrer"></iframe>
+      </div>
+    </div>
+    <div class="base" aria-hidden="true"></div>
+    <div class="btns"><a class="btn" href="https://htremc.github.io/tacho-demo/" target="_blank" rel="noopener">Ver la demo a pantalla completa</a></div>
+  </section>
+
+  <!-- 4 · UN DATO -->
+  <section class="block" aria-labelledby="h-ola">
+    <div class="sec-h"><h2 id="h-ola">137.969 visitas en octubre. Y la ola baja.</h2></div>
+    <div class="chartwrap">
+      <div class="cols" role="list" aria-label="Visitas medias por día en cada semana de octubre">
+        <div class="col" role="listitem" title="Del 1 al 7 de octubre: 6.916 visitas al día"><span class="v num">6.916</span><span class="b" style="height:75.6%"></span></div>
+        <div class="col" role="listitem" title="Del 8 al 14 de octubre: 4.339 visitas al día"><span class="v num">4.339</span><span class="b" style="height:47.4%"></span></div>
+        <div class="col" role="listitem" title="Del 15 al 21 de octubre: 4.127 visitas al día"><span class="v num">4.127</span><span class="b" style="height:45.1%"></span></div>
+        <div class="col" role="listitem" title="Del 22 al 28 de octubre: 3.304 visitas al día"><span class="v num">3.304</span><span class="b" style="height:36.1%"></span></div>
+        <div class="col part" role="listitem" title="Del 29 al 31 de octubre: 2.388 visitas al día"><span class="v num">2.388</span><span class="b" style="height:26.1%"></span></div>
+      </div>
+      <div class="labs" aria-hidden="true"><span>1–7<small>oct</small></span><span>8–14<small>oct</small></span><span>15–21<small>oct</small></span><span>22–28<small>oct</small></span><span>29–31<small>3 días</small></span></div>
+      <p class="read"><span>La visita diaria cae un 65 % en cuatro semanas: <mark>es el momento de que vuelvan.</mark></span></p>
+      <p class="src">Visitas medias al día, por semana · Similarweb, octubre de 2026</p>
+    </div>
+  </section>
+
+  <!-- 5 · PRECIO -->
+  <section aria-labelledby="h-precio">
+    <div class="free">
+      <div class="stamp" role="img" aria-label="Primer mes gratis de todo el catálogo"><span class="s1">1.<sup>er</sup> MES</span><span class="s2">GRATIS</span><span class="s3">DE TODO</span></div>
+      <div>
+        <h3 id="h-precio">El primer mes, <em>gratis de todo el catálogo</em></h3>
+        <p>Sin implantación ni cuota el primer mes. Meta cobra sus mensajes aparte.</p>
+      </div>
+    </div>
+    <div class="prices">
+      <article class="pc dark">
+        <span class="tag">El ancla</span>
+        <h3>Pack de <em>Crecimiento</em></h3>
+        <ul class="pills"><li>Aviso de vuelta a stock</li><li>Un bote más al mismo envío</li><li>Que vuelvan a comprar</li><li>Puntos</li><li>Pedidos sin pagar</li></ul>
+        <p class="amount num"><s>2.500 €</s><b>1.499 €</b><span>implantación</span></p>
+        <ul class="terms">
+          <li><span>Al 50 % si facturáis &lt; 40 k€/mes: <b>749,50 €</b></span></li>
+          <li><span><b>499 €/mes</b> de cuota única, por todo el sistema</span></li>
+        </ul>
+      </article>
+      <article class="pc">
+        <span class="tag dark">0 € fijos</span>
+        <h3>Pack de Ventas <em>a Resultados</em></h3>
+        <ul class="pills"><li>Carritos por WhatsApp</li><li>Devoluciones</li><li>Reembolsos</li><li>Ahorro verificado</li><li>Suscripciones</li></ul>
+        <p class="amount num"><s>2.500 €</s><b>1.499 €</b><span>implantación</span></p>
+        <ul class="terms">
+          <li><span>Al 50 % si facturáis &lt; 40 k€/mes: <b>749,50 €</b></span></li>
+          <li><span><b>0 € al mes + 35 %</b> del beneficio que genere, sin tope</span></li>
+        </ul>
+      </article>
+    </div>
+    <p class="one-fee">Con los dos packs, una sola cuota: <b>499 €/mes</b> por todo el sistema.</p>
+    <details>
+      <summary>Ver los supuestos y las condiciones</summary>
+      <div class="det">
+        <div>
+          <h4>Supuestos de la estimación</h4>
+          <ul>
+            <li>140.000 visitas al mes (Similarweb, octubre: 137.969).</li>
+            <li>Conversión del 1,0 % y ticket de 25 €, estimados: ≈1.400 pedidos web al mes.</li>
+            <li>60 % abandona al pagar, estimado: ≈2.100 carritos abandonados al mes.</li>
+            <li>50 % acepta WhatsApp, margen del 45 %, 6 % de agotados, 30 % de recompra y 2 % de devoluciones: supuestos nuestros, se cambian por los vuestros.</li>
+            <li>Recuperación actual: un email de recordatorio.</li>
+            <li>Es beneficio, no ventas, y se mueve con las visitas: la afinamos con vuestras cifras reales.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Condiciones</h4>
+          <ul>
+            <li>El primer mes no hay implantación ni cuota; después os quedáis con lo que os haya funcionado.</li>
+            <li>La comisión del Pack de Ventas sí corre desde el primer día: solo existe si recupera.</li>
+            <li>Los mensajes de WhatsApp los cobra Meta a vuestra tarjeta, a precio de Meta y sin recargo nuestro.</li>
+            <li>El 50 % de la implantación se confirma con vuestra facturación real. Sin permanencia: 15 días de aviso.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- 6 · CIERRE -->
+  <section class="closing" id="empezar" aria-labelledby="h-close">
+    <div class="sec-h"><h2 id="h-close">Lo instalamos todo nosotros, sin tocar vuestra tienda</h2><p>Sumamos a Shopify y Klaviyo: no sustituimos el email, lo completamos.</p></div>
+    <ol class="steps">
+      <li>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.5 3.5h3l1.5 4-2 1.5a10 10 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5.5a2 2 0 0 1 2-2z"/></svg></span>
+        <h3>Una llamada de alta</h3>
+        <p>Nos dais acceso a Shopify y a Meta. El número lo elegís vosotros.</p>
+      </li>
+      <li>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0 5 5l-8.5 8.5a2.1 2.1 0 0 1-3-3z"/><path d="M14.5 6.5l3-3"/></svg></span>
+        <h3>Lo instalamos todo</h3>
+        <p>Casilla de WhatsApp, automatizaciones y agente. Vuestro equipo no toca nada.</p>
+      </li>
+      <li>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5h16"/><path d="M6.5 16v-4M11 16V8M15.5 16v-6M20 16V5"/></svg></span>
+        <h3>Funciona solo</h3>
+        <p>WhatsApp oficial de Meta, 24/7. Lo veis en vuestra app, en euros.</p>
+      </li>
+    </ol>
+    <div class="btns"><a class="btn big" href="https://cal.com/smart-compound/onboarding" target="_blank" rel="noopener">Empezar el onboarding gratuito<small>Reunión «Arranque del onboarding» · elegís día y hora</small></a></div>
+    <p class="contact">O llámanos: <a href="tel:+34854788707">854 78 87 07</a> · también por <a href="https://wa.me/34854788707" target="_blank" rel="noopener">WhatsApp</a></p>
+  </section>
+
+  <div class="signature"><span><b>Héctor Escobar</b> · COMPOUND (Meta Tech Provider)</span><span class="num">854 78 87 07 · teléfono y WhatsApp</span></div>
+</main>
+</div>
+
+<footer class="wrap">
+  <div class="in">Fuentes: Similarweb PRO (tachocream.com, octubre de 2026), la tienda tachocream.com revisada el 17 y el 19 de noviembre de 2026 sin comprar ni dejar datos. Lo marcado con ≈ o «estimado» son cálculos nuestros: los ajustamos con vuestras cifras.</div>
+</footer>
+
+<div class="bar"><a href="https://cal.com/smart-compound/onboarding" target="_blank" rel="noopener">Empezar el onboarding gratuito</a></div>
+
+</body>
+</html>
