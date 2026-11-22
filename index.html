@@ -76,25 +76,45 @@ em{font-style:normal}
 .tag{display:inline-block; background:var(--mint); color:var(--mint-ink); border-radius:8px; padding:5px 10px; font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; justify-self:start}
 .tag.dark{background:var(--navy); color:var(--mint); border:1px solid rgba(25,211,162,.5)}
 
-/* ---------- 2 · Problema → Lo resolvemos ---------- */
+/* ---------- 2 · Problema → Lo resolvemos (mini-historias con el WhatsApp que llega) ---------- */
 .mintband{background:linear-gradient(135deg, #19D3A2, #12B98C); border-radius:22px; padding:clamp(16px,2.6vw,26px)}
 .mintband .sec-h h2{color:var(--mint-ink)}
 .mintband .sec-h p{color:rgba(6,18,31,.78); font-weight:600}
 .fixes{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
-.fx{background:var(--navy); color:var(--on-navy); border-radius:18px; padding:18px 16px 16px; box-shadow:0 4px 0 rgba(6,18,31,.28); display:grid; gap:12px; align-content:start; grid-template-rows:auto auto auto 1fr; min-width:0}
-.fx-h{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
-.fx-h h3{font-size:1.2rem; line-height:1.1; font-weight:900; letter-spacing:-.01em}
-.fx-h .later{margin-left:auto; border:1px dashed rgba(255,255,255,.4); color:var(--on-navy-2); border-radius:99px; padding:3px 9px; font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap}
+.fx{background:var(--navy); color:var(--on-navy); border-radius:18px; padding:18px 16px 16px; box-shadow:0 4px 0 rgba(6,18,31,.28); display:flex; flex-direction:column; gap:12px; min-width:0}
+.fx-h{display:flex; align-items:center; gap:12px}
+.fx-h h3{font-size:1.16rem; line-height:1.12; font-weight:900; letter-spacing:-.01em}
 .fx .ico{flex:none; width:44px; height:44px; border-radius:14px; background:var(--mint); color:var(--mint-ink); display:grid; place-items:center}
 .fx .ico svg{width:25px; height:25px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
-.fx .lb{display:block; font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; margin-bottom:4px}
-.fx .pb, .fx .sol{font-size:1rem; line-height:1.38; font-weight:600; color:var(--on-navy)}
-.fx .pb .lb{color:var(--bad)}
-.fx .sol{border-left:3px solid var(--mint); padding-left:11px}
-.fx .sol .lb{color:var(--mint)}
-.fx .gain{align-self:end; display:grid; gap:6px; border-top:1px dashed var(--line-dark); padding-top:12px}
-.fx .gain .lb{color:var(--on-navy-3); margin:0}
-.fx .res{justify-self:start; background:var(--mint); color:var(--mint-ink); border-radius:99px; padding:5px 12px; font-size:.92rem; font-weight:900}
+.fx .which{align-self:flex-start; font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--mint); border:1px solid rgba(25,211,162,.5); border-radius:99px; padding:2px 9px}
+.fx .which.later{color:var(--on-navy-2); border:1px dashed rgba(255,255,255,.4)}
+.fx .lb{display:block; font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px}
+.fx .hoy{font-size:.98rem; line-height:1.42; font-weight:600; color:var(--on-navy-2)}
+.fx .hoy .lb{color:var(--bad)}
+.fx .hoy b{color:var(--on-navy); font-weight:800}
+.fx .llega .lb{color:var(--mint)}
+/* El WhatsApp en miniatura: lo que le llega al cliente, tal cual */
+.wa{background:#EFEAE2; border-radius:14px; padding:10px; color:#111B21; display:grid; gap:6px; font-size:.9rem; line-height:1.35}
+.wa-top{display:flex; align-items:center; gap:7px; font-size:.78rem; font-weight:800; color:#3B4A54}
+.wa-top i{width:20px; height:20px; border-radius:50%; background:#00A884; color:#fff; display:grid; place-items:center; font-style:normal; font-size:11px; font-weight:900}
+.wa-top .ok{color:#00A884}
+.msg{justify-self:start; max-width:94%; background:#fff; border-radius:0 10px 10px 10px; padding:7px 9px 5px; box-shadow:0 1px 0 rgba(0,0,0,.12); font-weight:500}
+.msg.me{justify-self:end; background:#D9FDD3; border-radius:10px 0 10px 10px}
+.msg small{display:block; text-align:right; font-size:.68rem; color:#667781; margin-top:2px}
+.cta{justify-self:start; width:94%; background:#fff; border-radius:10px; padding:7px; text-align:center; color:#027EB5; font-weight:700; font-size:.88rem; box-shadow:0 1px 0 rgba(0,0,0,.12)}
+.cta.mint{background:#00A884; color:#fff}
+/* El pago en miniatura: la casilla que ve el cliente */
+.ck{background:#fff; color:#111B21; border-radius:14px; padding:12px; display:grid; gap:8px; font-size:.88rem; line-height:1.35}
+.ck .t{font-size:.78rem; font-weight:800; color:#3B4A54; text-transform:uppercase; letter-spacing:.08em}
+.ck .fld{border:1px solid #D5D9DE; border-radius:8px; padding:7px 9px; color:#6B7280}
+.ck .box{display:flex; gap:8px; align-items:flex-start; border:2px solid #19D3A2; background:#ECFBF6; border-radius:8px; padding:8px; font-weight:700}
+.ck .box b{flex:none; width:18px; height:18px; border-radius:4px; background:#0FA07C; color:#fff; display:grid; place-items:center; font-size:12px}
+.ck .pay{background:#111B21; color:#fff; border-radius:8px; padding:8px; text-align:center; font-weight:800}
+/* El producto agotado en miniatura */
+.so{display:flex; align-items:center; gap:8px; background:#fff; border-radius:10px; padding:7px 9px; font-size:.85rem; font-weight:700; color:#111B21}
+.so .ag{margin-left:auto; background:#111B21; color:#fff; border-radius:6px; padding:2px 7px; font-size:.7rem; letter-spacing:.06em}
+.fx .then{margin-top:auto; display:flex; gap:9px; align-items:flex-start; border-top:1px dashed var(--line-dark); padding-top:12px; font-size:.98rem; line-height:1.38; font-weight:800}
+.fx .then::before{content:"✓"; flex:none; width:22px; height:22px; border-radius:50%; background:var(--mint); color:var(--mint-ink); display:grid; place-items:center; font-size:.8rem; font-weight:900}
 .fx-note{margin-top:14px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; background:var(--navy); color:var(--on-navy-2); border-radius:16px; padding:14px 18px; font-size:.98rem}
 .fx-note b{color:var(--mint); font-size:1.5rem; font-weight:900; white-space:nowrap}
 .fx-note .e{color:var(--est-dark)}
@@ -130,38 +150,41 @@ em{font-style:normal}
 .read mark{background:linear-gradient(transparent 52%, rgba(25,211,162,.42) 52%); color:inherit; padding:0 .08em}
 .src{margin-top:10px; font-family:var(--mono); font-size:11.5px; color:var(--mute)}
 
-/* ---------- 5 · Precio ---------- */
-.free{display:grid; grid-template-columns:auto minmax(0,1fr); gap:18px 28px; align-items:center; background:var(--navy); color:var(--on-navy); border-radius:22px; padding:clamp(18px,2.6vw,26px); margin-bottom:14px}
+/* ---------- 5 · Precio: tres packs, mismo color, lo que hace y lo que genera cada uno ---------- */
+.free{display:grid; grid-template-columns:auto minmax(0,1fr); gap:18px 28px; align-items:center; background:var(--navy); color:var(--on-navy); border-radius:22px; padding:clamp(18px,2.6vw,26px); margin-bottom:22px}
 .free .stamp{width:clamp(140px,16vw,170px); transform:rotate(-8deg)}
 .free .stamp .s2{font-size:clamp(1.8rem,2.8vw,2.2rem)}
 .free h3{font-size:clamp(1.4rem,3vw,2rem); line-height:1.08; font-weight:900; letter-spacing:-.01em}
 .free h3 em{color:var(--mint)}
 .free p{margin-top:8px; color:var(--on-navy-2)}
-.prices{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px}
-.pc{background:var(--paper); color:var(--ink); border:2px solid var(--mint); border-radius:22px; padding:20px; display:grid; gap:14px; align-content:start; min-width:0}
-.pc.dark{background:var(--navy); color:var(--on-navy); border-color:rgba(25,211,162,.6)}
-.pc h3{font-size:1.5rem; line-height:1.05; font-weight:900; letter-spacing:-.01em}
-.pc.dark h3 em{color:var(--mint)}
-.pc h3 em{color:var(--mint-text)}
-.pills{display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0; list-style:none}
-.pills li{border:1px solid var(--line); border-radius:99px; padding:4px 10px; font-size:.82rem; font-weight:700; color:var(--ink-2)}
-.pc.dark .pills li{border-color:rgba(255,255,255,.18); color:var(--on-navy-2)}
+.prices{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+.pc{background:var(--navy); color:var(--on-navy); border:2px solid rgba(25,211,162,.55); border-radius:22px; padding:20px 18px; display:flex; flex-direction:column; gap:14px; min-width:0}
+.pc h3{font-size:1.45rem; line-height:1.05; font-weight:900; letter-spacing:-.01em}
+.pc h3 em{color:var(--mint); display:block}
+.pc .why{font-size:1rem; line-height:1.35; font-weight:700; color:var(--on-navy-2); margin-top:-6px}
+.gen{background:rgba(25,211,162,.12); border:1px solid rgba(25,211,162,.45); border-radius:14px; padding:12px 14px; display:grid; gap:3px}
+.gen .lb{font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--on-navy-3)}
+.gen b{font-size:clamp(1.9rem,3.2vw,2.35rem); line-height:1.05; font-weight:900; letter-spacing:-.02em; color:var(--mint); white-space:nowrap}
+.gen .sub{font-size:.88rem; font-weight:700; color:var(--on-navy-2)}
+.pc .e{color:var(--est-dark)}
+.does{margin:0; padding:0; list-style:none; display:grid; gap:9px; font-size:.95rem; line-height:1.38; color:var(--on-navy-2)}
+.does li{display:grid; grid-template-columns:18px minmax(0,1fr); gap:8px}
+.does li::before{content:"✓"; color:var(--mint); font-weight:900}
+.does b{color:var(--on-navy)}
+.price{margin-top:auto; border-top:1px dashed var(--line-dark); padding-top:14px; display:grid; gap:6px}
 .amount{display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px}
-.amount s{font-size:1.25rem; font-weight:700; color:var(--mute)}
-.pc.dark .amount s{color:var(--on-navy-3)}
-.amount b{font-size:clamp(2.4rem,5vw,3rem); line-height:1; font-weight:900; letter-spacing:-.03em; color:var(--mint-text)}
-.pc.dark .amount b{color:var(--mint)}
-.amount span{font-size:.9rem; font-weight:700; color:var(--mute)}
-.pc.dark .amount span{color:var(--on-navy-3)}
-.terms{margin:0; padding:0; list-style:none; display:grid; gap:8px; border-top:1px dashed var(--line); padding-top:12px; font-size:.95rem; color:var(--ink-2)}
-.pc.dark .terms{border-top-color:var(--line-dark); color:var(--on-navy-2)}
-.terms li{display:grid; grid-template-columns:18px minmax(0,1fr); gap:8px}
-.terms li::before{content:"✓"; color:var(--mint-text); font-weight:900}
-.pc.dark .terms li::before{color:var(--mint)}
-.terms b{color:var(--ink)}
-.pc.dark .terms b{color:var(--on-navy)}
-.one-fee{margin-top:12px; text-align:center; font-weight:800; color:var(--ink-2)}
-.one-fee b{color:var(--ink)}
+.amount s{font-size:1.2rem; font-weight:700; color:var(--on-navy-3)}
+.amount b{font-size:clamp(2.2rem,4vw,2.7rem); line-height:1; font-weight:900; letter-spacing:-.03em; color:var(--mint)}
+.amount span{font-size:.88rem; font-weight:700; color:var(--on-navy-3)}
+.monthly{font-size:.95rem; line-height:1.35; color:var(--on-navy-2); min-height:2.7em}
+.monthly b{color:var(--on-navy)}
+.allin{margin-top:14px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 18px; background:var(--navy); color:var(--on-navy-2); border-radius:16px; padding:16px 18px; font-size:1rem}
+.allin .big{color:var(--mint); font-size:1.6rem; font-weight:900; white-space:nowrap}
+.allin .e{color:var(--est-dark)}
+.allin .fee{flex-basis:100%; font-size:.95rem}
+.allin .fee b{color:var(--on-navy)}
+.half{margin-top:10px; text-align:center; font-weight:700; color:var(--ink-2)}
+.half b{color:var(--ink)}
 details{margin-top:14px; border:1px solid var(--line); border-radius:14px; background:var(--paper)}
 summary{cursor:pointer; padding:13px 16px; font-weight:800; font-size:.95rem; list-style-position:inside}
 .det{padding:0 16px 16px; display:grid; grid-template-columns:minmax(0,1fr); gap:16px}
@@ -198,6 +221,7 @@ footer{padding-block:22px 28px; font-size:.8rem; color:var(--on-navy-3)}
 
 @media (max-width: 960px){
   .fixes{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .prices{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width: 760px){
   body{font-size:16px}
@@ -244,46 +268,98 @@ footer{padding-block:22px 28px; font-size:.8rem; color:var(--on-navy-3)}
 <div class="wrap">
 <main class="in sheet">
 
-  <!-- 2 · PROBLEMA → LO RESOLVEMOS -->
+  <!-- 2 · PROBLEMA → LO RESOLVEMOS: seis momentos de un cliente, con el WhatsApp que le llegaría -->
   <section class="mintband" aria-labelledby="h-fix">
-    <div class="sec-h"><h2 id="h-fix">Problema → Lo resolvemos</h2><p>Seis cosas que hemos visto en vuestra tienda, y cómo las resolvemos.</p></div>
+    <div class="sec-h"><h2 id="h-fix">Problema → Lo resolvemos</h2><p>Seis momentos de un cliente de Tacho: lo que pasa hoy, lo que le llegaría por WhatsApp y lo que pasa después.</p></div>
     <div class="fixes">
+
       <article class="fx">
-        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.9-3.5M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3.5M20 20v-4h-4"/></svg></span><h3>Que vuelvan a comprar</h3></div>
-        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>Mucha gente os compró en la ola. Se le acaba el bote y nadie le recuerda volver.</p>
-        <p class="sol"><span class="lb">→ Qué hacemos</span>Cuando se le está acabando, le escribimos por WhatsApp para reponer. Y cada compra suma puntos.</p>
-        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">Clientes que repiten</span></div>
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.9-3.5M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3.5M20 20v-4h-4"/></svg></span><h3>Cuando a un cliente se le acaba el bote</h3></div>
+        <span class="which">Pack de Crecimiento</span>
+        <p class="hoy"><span class="lb">✕ Hoy</span>Marta os compró en octubre por un vídeo. Al mes se le acaba el bote, <b>nadie le dice nada y se olvida de Tacho.</b></p>
+        <div class="llega"><span class="lb">→ Con COMPOUND, le llega esto</span>
+          <div class="wa">
+            <div class="wa-top"><i>T</i>Tacho <span class="ok">✓</span></div>
+            <p class="msg">Hola, Marta 👋 ¿Te queda Tacho? Por si se te está acabando, te dejamos tu pedido listo. Y ya llevas 120 puntos 🎁<small>10:02</small></p>
+            <p class="cta">↺ Repetir mi pedido</p>
+          </div>
+        </div>
+        <p class="then">Marta vuelve a comprar con un toque, sin tener que buscaros.</p>
       </article>
+
       <article class="fx">
-        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8 12.5l3 3 5-6"/></svg></span><h3>Permiso para escribir</h3></div>
-        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>Al pagar no se pide permiso para WhatsApp, así que no podéis escribir a nadie.</p>
-        <p class="sol"><span class="lb">→ Qué hacemos</span>Añadimos la casilla de WhatsApp al pagar. Legal, y la gestionamos nosotros.</p>
-        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">La llave de todo lo demás</span></div>
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8 12.5l3 3 5-6"/></svg></span><h3>Cuando un cliente paga</h3></div>
+        <span class="which">Incluido en el alta</span>
+        <p class="hoy"><span class="lb">✕ Hoy</span>Al pagar solo deja su email. <b>Sin su permiso, no podéis escribirle por WhatsApp</b>, ni siquiera para avisarle de su pedido.</p>
+        <div class="llega"><span class="lb">→ Con COMPOUND, ve esto al pagar</span>
+          <div class="ck">
+            <span class="t">Pago</span>
+            <span class="fld">marta@correo.com</span>
+            <span class="box"><b>✓</b>Quiero que Tacho me avise por WhatsApp de mi pedido y de novedades</span>
+            <span class="pay">Pagar ahora</span>
+          </div>
+        </div>
+        <p class="then">Quien la marca os da permiso para escribirle. Es legal y es la llave de todo lo demás.</p>
       </article>
+
       <article class="fx">
-        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2.5l2.2 10.5h10.6L20.5 7H7"/><circle cx="9.5" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg></span><h3>Carritos abandonados</h3></div>
-        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>Alguien llena el carrito, llega al pago y se va. Solo le llega un email que casi nadie abre.</p>
-        <p class="sol"><span class="lb">→ Qué hacemos</span>Le escribimos por WhatsApp con su carrito listo: un toque y lo paga. Si duda, le respondemos al momento.</p>
-        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">Ventas que hoy se pierden</span></div>
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2.5l2.2 10.5h10.6L20.5 7H7"/><circle cx="9.5" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg></span><h3>Cuando alguien deja el carrito a medias</h3></div>
+        <span class="which">Pack de Ventas</span>
+        <p class="hoy"><span class="lb">✕ Hoy</span>Pablo mete dos botes, llega a pagar… y le llaman por teléfono. Se va. <b>Le llega un email que nunca abre.</b></p>
+        <div class="llega"><span class="lb">→ Con COMPOUND, le llega esto</span>
+          <div class="wa">
+            <div class="wa-top"><i>T</i>Tacho <span class="ok">✓</span></div>
+            <p class="msg">Hola, Pablo. Te guardamos tus dos botes de Tacho 🥜 ¿Te ayudo con algo? Si quieres, lo terminas aquí mismo:<small>19:46</small></p>
+            <p class="cta">🛒 Terminar mi compra</p>
+          </div>
+        </div>
+        <p class="then">Pablo paga desde el móvil en segundos. Y si tiene una duda, la IA se la responde al momento.</p>
       </article>
+
       <article class="fx">
-        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span><h3>Productos agotados</h3></div>
-        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>Alguien llega desde un vídeo, ve «agotado» y se va. No vuelve, y no sabéis quién era.</p>
-        <p class="sol"><span class="lb">→ Qué hacemos</span>Ponemos un botón «avísame por WhatsApp» y le escribimos en cuanto repongáis.</p>
-        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">Ventas que vuelven</span></div>
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></span><h3>Cuando algo está agotado</h3></div>
+        <span class="which">Pack de Crecimiento</span>
+        <p class="hoy"><span class="lb">✕ Hoy</span>Lucía llega desde un vídeo, ve «Agotado» y se va. <b>No vuelve, y no sabéis ni quién era.</b></p>
+        <div class="llega"><span class="lb">→ Con COMPOUND, deja su WhatsApp y le llega esto</span>
+          <div class="wa">
+            <div class="so">Crema de pistacho <span class="ag">AGOTADO</span></div>
+            <p class="cta mint">🔔 Avísame por WhatsApp</p>
+            <p class="msg">¡Ya ha vuelto, Lucía! 🎉 La crema que querías vuelve a estar disponible:<small>09:15</small></p>
+            <p class="cta">Comprar ahora</p>
+          </div>
+        </div>
+        <p class="then">Lucía compra el mismo día que reponéis, sin que tengáis que hacer nada.</p>
       </article>
+
       <article class="fx">
-        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></svg></span><h3>Opiniones</h3><span class="later">Más adelante</span></div>
-        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>Habéis vendido miles de botes, pero vuestra crema estrella no enseña ninguna opinión.</p>
-        <p class="sol"><span class="lb">→ Qué hacemos</span>Después de cada entrega, pedimos la opinión por WhatsApp, con foto.</p>
-        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">Confianza, en la web y en el súper</span></div>
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></svg></span><h3>Cuando ya le ha llegado el pedido</h3></div>
+        <span class="which later">Más adelante</span>
+        <p class="hoy"><span class="lb">✕ Hoy</span>Habéis vendido miles de botes, pero <b>en la web no se ve ni una opinión.</b> Quien no os conoce, duda.</p>
+        <div class="llega"><span class="lb">→ Con COMPOUND, le llega esto</span>
+          <div class="wa">
+            <div class="wa-top"><i>T</i>Tacho <span class="ok">✓</span></div>
+            <p class="msg">¿Qué tal tu Tacho, Marta? ⭐ ¿Nos dejas tu opinión? Si es con foto, mejor 📸<small>12:30</small></p>
+            <p class="cta">⭐ Dejar mi opinión</p>
+          </div>
+        </div>
+        <p class="then">Opiniones reales en cada producto. Quien duda, se fía y compra.</p>
       </article>
+
       <article class="fx">
-        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v10H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><h3>Dudas de clientes</h3></div>
-        <p class="pb"><span class="lb">✕ Qué pasa hoy</span>«¿Dónde está mi pedido?» o «¿lleva gluten?» acaban en el correo de Josep.</p>
-        <p class="sol"><span class="lb">→ Qué hacemos</span>Las responde la IA por WhatsApp, al momento y a cualquier hora. Lo raro pasa a vuestro equipo.</p>
-        <div class="gain"><span class="lb">Qué ganáis</span><span class="res">Tiempo para el equipo</span></div>
+        <div class="fx-h"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v10H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><h3>Cuando un cliente tiene una duda</h3></div>
+        <span class="which">Pack de Soporte</span>
+        <p class="hoy"><span class="lb">✕ Hoy</span>«¿Dónde está mi pedido?» acaba en el correo de Josep, <b>que lo contesta a mano, uno a uno.</b></p>
+        <div class="llega"><span class="lb">→ Con COMPOUND, pasa esto</span>
+          <div class="wa">
+            <div class="wa-top"><i>T</i>Tacho <span class="ok">✓</span></div>
+            <p class="msg me">Hola, ¿dónde está mi pedido? 🙏<small>23:12</small></p>
+            <p class="msg">¡Ya va de camino, Pablo! 🚚 Te llega el jueves. Lo puedes seguir aquí:<small>23:12</small></p>
+            <p class="cta">📦 Seguir mi pedido</p>
+          </div>
+        </div>
+        <p class="then">Respondido en segundos, a cualquier hora. Josep solo ve lo que de verdad necesita a una persona.</p>
       </article>
+
     </div>
     <p class="fx-note"><span>Sumando todo lo que hacemos <span class="e">estimado</span></span><b class="num">≈2.000 €/mes</b></p>
   </section>
@@ -327,29 +403,62 @@ footer{padding-block:22px 28px; font-size:.8rem; color:var(--on-navy-3)}
         <p>Sin implantación ni cuota el primer mes. Meta cobra sus mensajes aparte.</p>
       </div>
     </div>
+    <div class="sec-h"><h2>Tres packs: lo que hace cada uno y lo que os genera</h2><p>Lo instalamos todo nosotros. Podéis empezar por uno y sumar los demás cuando queráis.</p></div>
     <div class="prices">
-      <article class="pc dark">
-        <span class="tag">El ancla</span>
+      <article class="pc">
         <h3>Pack de <em>Crecimiento</em></h3>
-        <ul class="pills"><li>Aviso de vuelta a stock</li><li>Un bote más al mismo envío</li><li>Que vuelvan a comprar</li><li>Puntos</li><li>Pedidos sin pagar</li></ul>
-        <p class="amount num"><s>2.500 €</s><b>1.499 €</b><span>implantación</span></p>
-        <ul class="terms">
-          <li><span>Al 50 % si facturáis &lt; 40 k€/mes: <b>749,50 €</b></span></li>
-          <li><span><b>499 €/mes</b> de cuota única, por todo el sistema</span></li>
+        <p class="why">Que cada cliente compre más veces y vuelva solo.</p>
+        <div class="gen"><span class="lb">Os genera</span><b class="num">≈1.500 €/mes</b><span class="sub">de beneficio <span class="e">estimado</span></span></div>
+        <ul class="does">
+          <li><span><b>Vuelta a stock:</b> quien ve «agotado» recibe un WhatsApp el día que reponéis.</span></li>
+          <li><span><b>Un bote más:</b> después de comprar, le ofrecemos añadir otro al mismo envío.</span></li>
+          <li><span><b>Recompra:</b> cuando se le acaba el bote, se lo recordamos con su pedido listo.</span></li>
+          <li><span><b>Puntos:</b> cada compra suma, y vuelve para gastarlos.</span></li>
+          <li><span><b>Pedidos sin pagar:</b> si un pago se queda a medias, le ayudamos a terminarlo.</span></li>
         </ul>
+        <div class="price">
+          <p class="amount num"><s>2.500 €</s><b>1.499 €</b><span>implantación, una vez</span></p>
+          <p class="monthly">Incluido en la cuota única de <b>499 €/mes</b></p>
+        </div>
       </article>
       <article class="pc">
-        <span class="tag dark">0 € fijos</span>
         <h3>Pack de Ventas <em>a Resultados</em></h3>
-        <ul class="pills"><li>Carritos por WhatsApp</li><li>Devoluciones</li><li>Reembolsos</li><li>Ahorro verificado</li><li>Suscripciones</li></ul>
-        <p class="amount num"><s>2.500 €</s><b>1.499 €</b><span>implantación</span></p>
-        <ul class="terms">
-          <li><span>Al 50 % si facturáis &lt; 40 k€/mes: <b>749,50 €</b></span></li>
-          <li><span><b>0 € al mes + 35 %</b> del beneficio que genere, sin tope</span></li>
+        <p class="why">Recuperar las ventas que ya eran vuestras y se escapan.</p>
+        <div class="gen"><span class="lb">Os genera</span><b class="num">≈500 €/mes</b><span class="sub">de beneficio <span class="e">estimado</span></span></div>
+        <ul class="does">
+          <li><span><b>Carritos por WhatsApp:</b> a quien se va al pagar, le devolvemos a su carrito con un toque.</span></li>
+          <li><span><b>Envíos que fallan:</b> avisamos antes de enviar si la dirección tiene pinta de fallar.</span></li>
+          <li><span><b>Devoluciones:</b> ofrecemos cambio o saldo, con el reembolso siempre a un clic.</span></li>
+          <li><span><b>Paquetes que no vuelven:</b> salvamos la parte de la venta que hoy se pierde entera.</span></li>
+          <li><span><b>Suscripciones:</b> si un cobro falla, avisamos para que no se pierda (si las activáis).</span></li>
         </ul>
+        <div class="price">
+          <p class="amount num"><s>2.500 €</s><b>1.499 €</b><span>implantación, una vez</span></p>
+          <p class="monthly"><b>0 € al mes.</b> Solo el 35 % de lo que recupere, sin tope: si no recupera, no cobramos.</p>
+        </div>
+      </article>
+      <article class="pc">
+        <h3>Pack de <em>Soporte</em></h3>
+        <p class="why">Que las dudas se respondan solas y el equipo recupere su tiempo.</p>
+        <div class="gen"><span class="lb">Os ahorra</span><b class="num">≈12 h/mes</b><span class="sub">de correos del equipo <span class="e">estimado</span></span></div>
+        <ul class="does">
+          <li><span><b>¿Dónde está mi pedido?:</b> la IA lo responde por WhatsApp al momento, también de noche.</span></li>
+          <li><span><b>Devoluciones sin correos:</b> el cliente la pide solo, en un portal, y vosotros solo la aprobáis.</span></li>
+          <li><span><b>Encuesta tras la entrega:</b> sabéis qué piensa cada cliente y quién no está contento antes de que lo diga fuera.</span></li>
+          <li><span><b>Lo delicado, a una persona:</b> alergias, quejas o casos raros pasan a vuestro equipo con todo el contexto.</span></li>
+        </ul>
+        <div class="price">
+          <p class="amount num"><s>2.500 €</s><b>1.499 €</b><span>implantación, una vez</span></p>
+          <p class="monthly">Incluido en la cuota única de <b>499 €/mes</b></p>
+        </div>
       </article>
     </div>
-    <p class="one-fee">Con los dos packs, una sola cuota: <b>499 €/mes</b> por todo el sistema.</p>
+    <div class="allin">
+      <span>Con los tres packs <span class="e">estimado</span></span>
+      <span><b class="big num">≈2.000 €/mes</b> + ≈12 h/mes del equipo</span>
+      <p class="fee">Por una sola cuota de <b>499 €/mes</b> por todo el sistema. El Pack de Ventas no suma cuota: solo el 35 % de lo que recupere.</p>
+    </div>
+    <p class="half">Si facturáis menos de 40.000 €/mes, la implantación va al 50 %: <b>749,50 € cada pack</b>.</p>
     <details>
       <summary>Ver los supuestos y las condiciones</summary>
       <div class="det">
@@ -360,6 +469,8 @@ footer{padding-block:22px 28px; font-size:.8rem; color:var(--on-navy-3)}
             <li>Conversión del 1,0 % y ticket de 25 €, estimados: ≈1.400 pedidos web al mes.</li>
             <li>60 % abandona al pagar, estimado: ≈2.100 carritos abandonados al mes.</li>
             <li>50 % acepta WhatsApp, margen del 45 %, 6 % de agotados, 30 % de recompra y 2 % de devoluciones: supuestos nuestros, se cambian por los vuestros.</li>
+            <li>Con estos supuestos: Pack de Crecimiento ≈1.500 €/mes y Pack de Ventas ≈500 €/mes de beneficio.</li>
+            <li>Pack de Soporte: ≈10 % de los pedidos pregunta por su envío (≈140 al mes, unos 5 minutos cada una).</li>
             <li>Recuperación actual: un email de recordatorio.</li>
             <li>Es beneficio, no ventas, y se mueve con las visitas: la afinamos con vuestras cifras reales.</li>
           </ul>
